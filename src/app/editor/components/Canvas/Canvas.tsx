@@ -53,9 +53,9 @@ export function Canvas() {
         </div>
 
         {/* Text Overlay */}
-        <div className="mt-auto mb-16 px-8 w-full z-10">
+        <div className="mt-auto mb-16 px-4 w-full z-10">
           <h1
-            className="text-3xl font-black leading-tight text-center"
+            className="text-lg font-black leading-tight text-center break-words"
             style={{
               color: selectedTextProps.color,
               fontFamily: selectedTextProps.fontFamily,

@@ -76,10 +76,15 @@ export function SideNavBar() {
           </div>
           <div className="flex flex-col gap-1">
             {layers.map((layer) => (
-              <button
+              <div
                 key={layer.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => selectLayer(layer.id)}
-                className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-left ${
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") selectLayer(layer.id);
+                }}
+                className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-left cursor-pointer ${
                   selectedLayerId === layer.id
                     ? "bg-surface-high text-white"
                     : "text-slate-300 hover:bg-surface-high/40"
@@ -100,7 +105,7 @@ export function SideNavBar() {
                     {layer.visible ? "visibility" : "visibility_off"}
                   </span>
                 </button>
-              </button>
+              </div>
             ))}
           </div>
         </div>
